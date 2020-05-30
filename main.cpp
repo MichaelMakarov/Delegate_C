@@ -59,6 +59,10 @@ int main()
 	std::cout << "Delegate copied from another with the same type: " << var2(89) << std::endl;
 	var2 = &Func::Sqr;
 	std::cout << "Delegate for static function of the class: " << var2(111) << std::endl;
+	
+	auto M = [](int a, int b, int c) {return a + b + c; };
+	Delegate<int(int, int, int)> var8 = M;
+	std::cout << "Delegate for lambda expression with several arguments: " << var8(1, 2, 3) << std::endl;
 
 	return 0;
 }
